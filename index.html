@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Dashboard</title>
 
-    <script src="https://kit.fontawesome.com/1866c76c2a.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/1866c76c2a.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
@@ -17,27 +20,101 @@
     />
 
     <link rel="stylesheet" href="./assets/css/style.css" />
-
-
   </head>
   <body>
+    <header class="navbar-header">
+      <h2 class="mx-auto" style="width: 400px">Weather Dashboard</h2>
+    </header>
 
+    <!-- Left aside spans 2 columns in bootstrap and houses the city search and stored search results.  The aside columns span 3 rows-->
+    <main class="row .container-fluid">
+      <aside class="col-3">
+        <h2>Search for a city:</h2>
+        <form class="form-group" id="city-form">
+          <input
+            type="city"
+            class="form-control"
+            id="city"
+            placeholder="Atlanta"
+          />
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
+        <hr>
+
+      </aside>
+
+      <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
+
+      <section>
+        <div id="topcity" class="col-10 border border-dark">
+          <h2 id="repo-search-term">Atlanta</h2>
+          <p>Temp:</p>
+          <p>Wind:</p>
+          <p>Humidity:</p>
+          <p>UV Index:</p>
+        </div>
+        <div class="row col-10">
+          <h3>Five Day Forecast:</h3>
+        </div>
+        <div class="row">
+          <card class="col-2">
+            <h5>04/06/2021</h5>
+            <img src="" />
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </card>
+
+          <card class="col-2">
+            <h5>04/07/2021</h5>
+            <img src="" />
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </card>
+
+          <card class="col-2">
+            <h5>04/08/2021</h5>
+            <img src="" />
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </card>
+
+          <card class="col-2">
+            <h5>04/09/2021</h5>
+            <img src="" />
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </card>
+
+          <card class="col-2">
+            <h5>04/10/2021</h5>
+            <img src="" />
+            <p>Temp:</p>
+            <p>Wind:</p>
+            <p>Humidity:</p>
+          </card>
+        </div>
+      </section>
+    </main>
   </body>
   <script
-  src="https://code.jquery.com/jquery-3.5.1.min.js"
-  integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
-  crossorigin="anonymous"
-></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+    crossorigin="anonymous"
+  ></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
   <script
-  type="text/javascript"
-  src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
-></script>
-  
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
+
   <script src="./assets/js/script.js"></script>
 
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> -->
 </html>
