@@ -27,52 +27,48 @@
     </header>
 
     <!-- Left aside spans 2 columns in bootstrap and houses the city search and stored search results.  The aside columns span 3 rows-->
-    <main class="row .container-fluid">
-      <aside class="col-3">
-        <h2>Search for a city:</h2>
-        <form class="form-group" id="city-form">
-          <input
-            type="city"
-            class="form-control"
-            id="city"
-            placeholder="Enter City Here"
-          />
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+    <main class="container-fluid">
+      <div class="row">
+        <aside class="col-3">
+          <h2>Search for a city:</h2>
+          <form class="form-group" id="city-form">
+            <input
+              type="city"
+              class="form-control"
+              id="city"
+              placeholder="Enter City Here"
+            />
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
 
-        <hr>
+          <hr />
 
-      </aside>
+          <div id="citysearches"></div>
+        </aside>
 
-      <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
+        <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
 
-      <section>
-        <div class="col-10 border border-dark" id="current">
-   
-        </div>
-        <div class="row col-10">
-          <h3>Five Day Forecast:</h3>
-        </div>
-        <div class="row">
-          <card id="day1" class="col-2 bg-primary text-white">
-          </card>
+        <section class="col-9 container">
+          <div class="row">
+            <!-- This is the current forecast -->
 
-          <card id="day2" class="col-2 bg-primary text-white">
-          </card>
+            <div class="col-12" id="current"></div>
+          </div>
+          <!-- This starts the 5 day forecast -->
+          <div class="row col-12" id="fiveday"></div>
+          <div class="row">
+            <card id="day1" class="col bg-primary text-white"> </card>
 
-          <card id="day3" class="col-2 bg-primary text-white">
+            <card id="day2" class="col bg-primary text-white"> </card>
 
-          </card>
+            <card id="day3" class="col bg-primary text-white"> </card>
 
-          <card id="day4" class="col-2 bg-primary text-white">
+            <card id="day4" class="col bg-primary text-white"> </card>
 
-          </card>
-
-          <card id="day5" class="col-2 bg-primary text-white">
-
-          </card>
-        </div>
-      </section>
+            <card id="day5" class="col bg-primary text-white"> </card>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
   <script

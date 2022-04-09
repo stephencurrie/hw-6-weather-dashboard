@@ -1,6 +1,9 @@
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city");
+var citySearchesEl = document.querySelector("#citysearches");
+var citySearchSubmit = document.querySelector("#citysearchsubmit");
 var currentEl = document.querySelector("#current");
+var fiveDayEl = document.querySelector("#fiveday");
 var dailyEl1 = document.querySelector("#day1");
 var dailyEl2 = document.querySelector("#day2");
 var dailyEl3 = document.querySelector("#day3");
@@ -9,6 +12,22 @@ var dailyEl5 = document.querySelector("#day5");
 
 var repoContainerEl = document.querySelector("#repos-container");
 var repoSearchTerm = document.querySelector("#repo-search-term");
+var cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || [];
+function dispayCities() {
+  citySearchesEl.innerHTML = "";
+  for (var i = 0; i < cityHistory.length; i++) {
+    var city = cityHistory[i];
+    var button = document.createElement("button");
+    button.innerText = city;
+    button.classList.add("btn");
+    button.addEventListener("click", function (event) {
+      var cityName = event.target.innerText;
+      getApi(cityName);
+    });
+    citySearchesEl.append(button);
+  }
+}
+dispayCities();
 
 var formSubmitHandler = function (event) {
   event.preventDefault();
@@ -16,6 +35,11 @@ var formSubmitHandler = function (event) {
   var cityName = cityInputEl.value.trim();
 
   if (cityName) {
+    if (cityHistory.indexOf(cityName) === -1) {
+      cityHistory.push(cityName);
+      localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
+      dispayCities();
+    }
     getApi(cityName);
   } else {
     alert("Please enter a city");
@@ -38,10 +62,8 @@ var getApi = function (cityName) {
       return response.json();
     })
     .then(function (data) {
- 
       var lat = data[0].lat;
       var lon = data[0].lon;
- 
 
       //   This is the api call to get the weather and the 5 day forecast using the lat/lon above
       var requestWeather =
@@ -62,25 +84,37 @@ var getApi = function (cityName) {
 
           var date = moment().format("dddd, MMM Do");
 
-
           var currentImage = data.current.weather[0].icon;
-
 
           var currentTemp = data.current.temp;
           var currentWind = data.current.wind_speed;
           var currentHumid = data.current.humidity;
           var currentUv = data.current.uvi;
+var color = "background-color:";
+if (currentUv>9) {
 
-currentEl.innerHTML = `
-<p class="h2">${cityName} ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
-<p>Temp: ${currentTemp}</p>
-<p>Wind: ${currentWind}</p>
-<p>Humidity: ${currentHumid}</p>
-<p>UV Index: ${currentUv}</p>
-
-`
+  color = color + "red";
+} else if (currentUv > 7) {
+  color = color + "yellow";
 
 
+} else {
+
+  color = color + "green";
+}
+          currentEl.innerHTML = `
+          <div class = "border border-dark">
+          <p class="h2">${cityName} ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
+          <p>Temp: ${currentTemp}</p>
+          <p>Wind: ${currentWind}</p>
+          <p>Humidity: ${currentHumid}</p>
+          <p>UV Index: <span style="${color}">${currentUv}</span></p>
+          </div>
+
+          `;
+          fiveDayEl.innerHTML = `
+          <h3>Five Day Forecast:</h3>
+          `;
 
           // Day1 of 5 Day Forecast
           var newDate1 = moment().add(1, "day").format("ddd, MMM Do");
@@ -90,11 +124,13 @@ currentEl.innerHTML = `
           var dailyHumid1 = data.daily[0].humidity;
 
           dailyEl1.innerHTML = `
+          <div>
           <p>${newDate1}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon1}.png";>
               <p>Temp: ${dailyTemp1}</p>
           <p>Wind: ${dailyWind1}</p>
-          <p>Humidity: ${dailyHumid1}</p>        
+          <p>Humidity: ${dailyHumid1}</p>   
+          </div>     
           `;
 
           // Day2 of 5 Day Forecast
@@ -106,11 +142,11 @@ currentEl.innerHTML = `
 
           dailyEl2.innerHTML = `
           <p>${newDate2}</p>
-                    <img src = "http://openweathermap.org/img/wn/${dailyImageIcon2}.png";>
-                        <p>Temp: ${dailyTemp2}</p>
-                    <p>Wind: ${dailyWind2}</p>
-                    <p>Humidity: ${dailyHumid2}</p>        
-                    `;
+          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon2}.png";>
+          <p>Temp: ${dailyTemp2}</p>
+          <p>Wind: ${dailyWind2}</p>
+          <p>Humidity: ${dailyHumid2}</p>        
+          `;
 
           // Day3 of 5 Day Forecast
           var newDate3 = moment().add(3, "day").format("ddd, MMM Do");
@@ -122,7 +158,7 @@ currentEl.innerHTML = `
           dailyEl3.innerHTML = `
           <p>${newDate3}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon3}.png";>
-              <p>Temp: ${dailyTemp3}</p>
+          <p>Temp: ${dailyTemp3}</p>
           <p>Wind: ${dailyWind3}</p>
           <p>Humidity: ${dailyHumid3}</p>        
           `;
@@ -136,11 +172,11 @@ currentEl.innerHTML = `
 
           dailyEl4.innerHTML = `
           <p>${newDate4}</p>
-                    <img src = "http://openweathermap.org/img/wn/${dailyImageIcon4}.png";>
-                        <p>Temp: ${dailyTemp4}</p>
-                    <p>Wind: ${dailyWind4}</p>
-                    <p>Humidity: ${dailyHumid4}</p>        
-                    `;
+          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon4}.png";>
+          <p>Temp: ${dailyTemp4}</p>
+          <p>Wind: ${dailyWind4}</p>
+          <p>Humidity: ${dailyHumid4}</p>        
+           `;
 
           // Day5 of 5 Day Forecast
           var newDate5 = moment().add(5, "day").format("ddd, MMM Do");
@@ -152,11 +188,18 @@ currentEl.innerHTML = `
           dailyEl5.innerHTML = `
           <p>${newDate5}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon5}.png";>
-              <p>Temp: ${dailyTemp5}</p>
+          <p>Temp: ${dailyTemp5}</p>
           <p>Wind: ${dailyWind5}</p>
           <p>Humidity: ${dailyHumid5}</p>        
           `;
         });
+
+      // function displayCitySearches() {
+      var displaySearches = localStorage.getItem("city");
+
+      // }
+      // citySearchSubmit.addEventListner("submit", formSubmitHandler);
     });
 };
+
 cityFormEl.addEventListener("submit", formSubmitHandler);
