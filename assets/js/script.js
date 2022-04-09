@@ -1,14 +1,6 @@
 var cityFormEl = document.querySelector("#city-form");
 var cityInputEl = document.querySelector("#city");
 var currentEl = document.querySelector("#current");
-var cityNameEl = document.querySelector("#cityname");
-var currentDateEl = document.querySelector("#date");
-var currentWeatherImageEl = document.querySelector("#currentweatherimage");
-var tempEl = document.querySelector("#temp");
-var windEl = document.querySelector("#wind");
-var humidEl = document.querySelector("#humid");
-var uvEl = document.querySelector("#uv");
-
 var dailyEl1 = document.querySelector("#day1");
 var dailyEl2 = document.querySelector("#day2");
 var dailyEl3 = document.querySelector("#day3");
@@ -67,28 +59,28 @@ var getApi = function (cityName) {
         .then(function (data) {
           console.log("Fetch Response \n-------------");
           console.log(data);
-          cityNameEl.textContent = cityName;
+
           var date = moment().format("dddd, MMM Do");
-          currentDateEl.textContent = date;
+
 
           var currentImage = data.current.weather[0].icon;
-          // var currentImageUrl = "http://openweathermap.org/img/wn/" + currentImage + "@2x.png";
 
-
-          var insertImg = document.createElement("img");
-          insertImg.src =
-            "http://openweathermap.org/img/wn/" + currentImage + "@2x.png";
-          currentWeatherImageEl.append(insertImg);
 
           var currentTemp = data.current.temp;
           var currentWind = data.current.wind_speed;
           var currentHumid = data.current.humidity;
           var currentUv = data.current.uvi;
 
-          tempEl.textContent = currentTemp;
-          windEl.textContent = currentWind;
-          humidEl.textContent = currentHumid;
-          uvEl.textContent = currentUv;
+currentEl.innerHTML = `
+<p class="h2">${cityName} ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
+<p>Temp: ${currentTemp}</p>
+<p>Wind: ${currentWind}</p>
+<p>Humidity: ${currentHumid}</p>
+<p>UV Index: ${currentUv}</p>
+
+`
+
+
 
           // Day1 of 5 Day Forecast
           var newDate1 = moment().add(1, "day").format("ddd, MMM Do");
