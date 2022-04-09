@@ -47,55 +47,34 @@
       <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
 
       <section>
-        <div id="topcity" class="col-10 border border-dark">
-          <h2 id="repo-search-term">Atlanta</h2>
-          <p>Temp:</p>
-          <p>Wind:</p>
-          <p>Humidity:</p>
-          <p>UV Index:</p>
+        <div class="col-10 border border-dark">
+          <p class="h2"><span id="cityname"> </span>  <span id="date"></span> <span id="currentweatherimage"></span></p>
+          <p>Temp: <span id="temp"></span>&#176;F</p>
+          <p>Wind: <span id="wind"></span>MPH</p>
+          <p>Humidity: <span id="humid"></span>%</p>
+          <p>UV Index: <span id="uv"></span></p>
         </div>
         <div class="row col-10">
           <h3>Five Day Forecast:</h3>
         </div>
         <div class="row">
-          <card class="col-2">
-            <h5>04/06/2021</h5>
-            <img src="" />
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
+          <card id="day1" class="col-2">
           </card>
 
           <card class="col-2">
-            <h5>04/07/2021</h5>
-            <img src="" />
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
+
           </card>
 
           <card class="col-2">
-            <h5>04/08/2021</h5>
-            <img src="" />
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
+
           </card>
 
           <card class="col-2">
-            <h5>04/09/2021</h5>
-            <img src="" />
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
+
           </card>
 
           <card class="col-2">
-            <h5>04/10/2021</h5>
-            <img src="" />
-            <p>Temp:</p>
-            <p>Wind:</p>
-            <p>Humidity:</p>
+
           </card>
         </div>
       </section>
