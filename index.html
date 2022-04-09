@@ -47,7 +47,7 @@
       <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
 
       <section>
-        <div class="col-10 border border-dark">
+        <div class="col-10 border border-dark" id="current">
           <p class="h2"><span id="cityname"> </span>  <span id="date"></span> <span id="currentweatherimage"></span></p>
           <p>Temp: <span id="temp"></span>&#176;F</p>
           <p>Wind: <span id="wind"></span>MPH</p>
@@ -58,22 +58,21 @@
           <h3>Five Day Forecast:</h3>
         </div>
         <div class="row">
-          <card id="day1" class="col-2">
+          <card id="day1" class="col-2 bg-primary text-white">
           </card>
 
-          <card class="col-2">
-
+          <card id="day2" class="col-2 bg-primary text-white">
           </card>
 
-          <card class="col-2">
-
-          </card>
-
-          <card class="col-2">
+          <card id="day3" class="col-2 bg-primary text-white">
 
           </card>
 
-          <card class="col-2">
+          <card id="day4" class="col-2 bg-primary text-white">
+
+          </card>
+
+          <card id="day5" class="col-2 bg-primary text-white">
 
           </card>
         </div>
