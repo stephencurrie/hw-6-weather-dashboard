@@ -26,7 +26,7 @@
       <h2 class="mx-auto" style="width: 400px">Weather Dashboard</h2>
     </header>
 
-    <!-- Left aside spans 2 columns in bootstrap and houses the city search and stored search results.  The aside columns span 3 rows-->
+    <!-- Left aside spans 3 columns in bootstrap and houses the city search and stored search results.  The aside columns span 3 rows-->
     <main class="container-fluid">
       <div class="row">
         <aside class="col-3">
@@ -38,15 +38,15 @@
               id="city"
               placeholder="Enter City Here"
             />
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="w-100 btn btn-primary">Submit</button>
           </form>
 
           <hr />
 
-          <div id="citysearches"></div>
+          <div id="citysearches" class = "w-100"></div>
         </aside>
 
-        <!-- Main section spans 10 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
+        <!-- Main section spans 9 columns and three rows.  The first row shows the weather for the selected city and spans all 10 columns, the second row is text for 5 day forecast and spans all 10 columns, the third row is made up of 5 sections of 2 columns, each showing a 5 day forecast  -->
 
         <section class="col-9 container">
           <div class="row">
@@ -57,15 +57,15 @@
           <!-- This starts the 5 day forecast -->
           <div class="row col-12" id="fiveday"></div>
           <div class="row">
-            <card id="day1" class="col bg-primary text-white"> </card>
+            <card id="day1" class="col bkg text-white ml-3 mr-3"> </card>
 
-            <card id="day2" class="col bg-primary text-white"> </card>
+            <card id="day2" class="col bkg text-white ml-3 mr-3"> </card>
 
-            <card id="day3" class="col bg-primary text-white"> </card>
+            <card id="day3" class="col bkg text-white ml-3 mr-3"> </card>
 
-            <card id="day4" class="col bg-primary text-white"> </card>
+            <card id="day4" class="col bkg text-white ml-3 mr-3"> </card>
 
-            <card id="day5" class="col bg-primary text-white"> </card>
+            <card id="day5" class="col bkg text-white ml-3 mr-3"> </card>
           </div>
         </section>
       </div>

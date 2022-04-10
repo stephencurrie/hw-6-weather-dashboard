@@ -1,6 +1,5 @@
 main {
     padding: 10px;
-    /* justify-content: space-between; */
 }
 
 header {
@@ -22,11 +21,16 @@ button {
     margin: 10px;
 }
 
-/* aside {
-    width: 600px;
-} */
-
-/* section {
+.buttonhistory {
     width: 100%;
-} */
+    background-color: rgb(181, 181, 181);
+    border-radius: 5px;
+    
+}
+
+.bkg {
+    background-color: rgb(32, 28, 92);
+
+}
+
 

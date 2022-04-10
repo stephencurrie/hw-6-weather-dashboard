@@ -19,7 +19,7 @@ function dispayCities() {
     var city = cityHistory[i];
     var button = document.createElement("button");
     button.innerText = city;
-    button.classList.add("btn");
+    button.classList.add("buttonhistory");
     button.addEventListener("click", function (event) {
       var cityName = event.target.innerText;
       getApi(cityName);
@@ -79,7 +79,6 @@ var getApi = function (cityName) {
           return response.json();
         })
         .then(function (data) {
-          console.log("Fetch Response \n-------------");
           console.log(data);
 
           var date = moment().format("dddd, MMM Do");
@@ -90,24 +89,20 @@ var getApi = function (cityName) {
           var currentWind = data.current.wind_speed;
           var currentHumid = data.current.humidity;
           var currentUv = data.current.uvi;
-var color = "background-color:";
-if (currentUv>9) {
-
-  color = color + "red";
-} else if (currentUv > 7) {
-  color = color + "yellow";
-
-
-} else {
-
-  color = color + "green";
-}
+          var color = "background-color:";
+          if (currentUv > 6) {
+            color = color + "red";
+          } else if (currentUv > 3) {
+            color = color + "yellow";
+          } else {
+            color = color + "green";
+          }
           currentEl.innerHTML = `
-          <div class = "border border-dark">
-          <p class="h2">${cityName} ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
-          <p>Temp: ${currentTemp}</p>
-          <p>Wind: ${currentWind}</p>
-          <p>Humidity: ${currentHumid}</p>
+          <div class = "border border-dark p-2">
+          <p class="h2">${cityName}: ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
+          <p>Temp: ${currentTemp}  &#176F</p>
+          <p>Wind: ${currentWind} MPH</p>
+          <p>Humidity: ${currentHumid}%</p>
           <p>UV Index: <span style="${color}">${currentUv}</span></p>
           </div>
 
@@ -127,9 +122,9 @@ if (currentUv>9) {
           <div>
           <p>${newDate1}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon1}.png";>
-              <p>Temp: ${dailyTemp1}</p>
-          <p>Wind: ${dailyWind1}</p>
-          <p>Humidity: ${dailyHumid1}</p>   
+              <p>Temp: ${dailyTemp1} &#176F</p>
+          <p>Wind: ${dailyWind1} MPH</p>
+          <p>Humidity: ${dailyHumid1}%</p>   
           </div>     
           `;
 
@@ -143,9 +138,9 @@ if (currentUv>9) {
           dailyEl2.innerHTML = `
           <p>${newDate2}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon2}.png";>
-          <p>Temp: ${dailyTemp2}</p>
-          <p>Wind: ${dailyWind2}</p>
-          <p>Humidity: ${dailyHumid2}</p>        
+          <p>Temp: ${dailyTemp2} &#176F</p>
+          <p>Wind: ${dailyWind2} MPH</p>
+          <p>Humidity: ${dailyHumid2}%</p>        
           `;
 
           // Day3 of 5 Day Forecast
@@ -158,9 +153,9 @@ if (currentUv>9) {
           dailyEl3.innerHTML = `
           <p>${newDate3}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon3}.png";>
-          <p>Temp: ${dailyTemp3}</p>
-          <p>Wind: ${dailyWind3}</p>
-          <p>Humidity: ${dailyHumid3}</p>        
+          <p>Temp: ${dailyTemp3} &#176F</p>
+          <p>Wind: ${dailyWind3} MPH</p>
+          <p>Humidity: ${dailyHumid3}%</p>        
           `;
 
           // Day4 of 5 Day Forecast
@@ -173,9 +168,9 @@ if (currentUv>9) {
           dailyEl4.innerHTML = `
           <p>${newDate4}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon4}.png";>
-          <p>Temp: ${dailyTemp4}</p>
-          <p>Wind: ${dailyWind4}</p>
-          <p>Humidity: ${dailyHumid4}</p>        
+          <p>Temp: ${dailyTemp4} &#176F</p>
+          <p>Wind: ${dailyWind4} MPH</p>
+          <p>Humidity: ${dailyHumid4}%</p>        
            `;
 
           // Day5 of 5 Day Forecast
@@ -188,9 +183,9 @@ if (currentUv>9) {
           dailyEl5.innerHTML = `
           <p>${newDate5}</p>
           <img src = "http://openweathermap.org/img/wn/${dailyImageIcon5}.png";>
-          <p>Temp: ${dailyTemp5}</p>
-          <p>Wind: ${dailyWind5}</p>
-          <p>Humidity: ${dailyHumid5}</p>        
+          <p>Temp: ${dailyTemp5} &#176F</p>
+          <p>Wind: ${dailyWind5} MPH</p>
+          <p>Humidity: ${dailyHumid5}%</p>        
           `;
         });
 
