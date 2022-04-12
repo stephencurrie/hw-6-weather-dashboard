@@ -52,7 +52,7 @@ var getApi = function (cityName) {
   var apiKey = "9b4ea01577c111c4a54f8444a8a355d9";
 
   var requestUrl =
-    "http://api.openweathermap.org/geo/1.0/direct?q=" +
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
     cityName +
     "&appid=" +
     apiKey;
