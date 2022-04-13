@@ -99,7 +99,7 @@ var getApi = function (cityName) {
           }
           currentEl.innerHTML = `
           <div class = "border border-dark p-2">
-          <p class="h2">${cityName}: ${date} <img src="http://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
+          <p class="h2">${cityName}: ${date} <img src="https://openweathermap.org/img/wn/${currentImage}@2x.png"; </p>
           <p>Temp: ${currentTemp}  &#176F</p>
           <p>Wind: ${currentWind} MPH</p>
           <p>Humidity: ${currentHumid}%</p>
@@ -121,7 +121,7 @@ var getApi = function (cityName) {
           dailyEl1.innerHTML = `
           <div>
           <p>${newDate1}</p>
-          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon1}.png";>
+          <img src = "https://openweathermap.org/img/wn/${dailyImageIcon1}.png";>
               <p>Temp: ${dailyTemp1} &#176F</p>
           <p>Wind: ${dailyWind1} MPH</p>
           <p>Humidity: ${dailyHumid1}%</p>   
@@ -137,7 +137,7 @@ var getApi = function (cityName) {
 
           dailyEl2.innerHTML = `
           <p>${newDate2}</p>
-          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon2}.png";>
+          <img src = "https://openweathermap.org/img/wn/${dailyImageIcon2}.png";>
           <p>Temp: ${dailyTemp2} &#176F</p>
           <p>Wind: ${dailyWind2} MPH</p>
           <p>Humidity: ${dailyHumid2}%</p>        
@@ -152,7 +152,7 @@ var getApi = function (cityName) {
 
           dailyEl3.innerHTML = `
           <p>${newDate3}</p>
-          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon3}.png";>
+          <img src = "https://openweathermap.org/img/wn/${dailyImageIcon3}.png";>
           <p>Temp: ${dailyTemp3} &#176F</p>
           <p>Wind: ${dailyWind3} MPH</p>
           <p>Humidity: ${dailyHumid3}%</p>        
@@ -167,7 +167,7 @@ var getApi = function (cityName) {
 
           dailyEl4.innerHTML = `
           <p>${newDate4}</p>
-          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon4}.png";>
+          <img src = "https://openweathermap.org/img/wn/${dailyImageIcon4}.png";>
           <p>Temp: ${dailyTemp4} &#176F</p>
           <p>Wind: ${dailyWind4} MPH</p>
           <p>Humidity: ${dailyHumid4}%</p>        
@@ -182,7 +182,7 @@ var getApi = function (cityName) {
 
           dailyEl5.innerHTML = `
           <p>${newDate5}</p>
-          <img src = "http://openweathermap.org/img/wn/${dailyImageIcon5}.png";>
+          <img src = "https://openweathermap.org/img/wn/${dailyImageIcon5}.png";>
           <p>Temp: ${dailyTemp5} &#176F</p>
           <p>Wind: ${dailyWind5} MPH</p>
           <p>Humidity: ${dailyHumid5}%</p>        
